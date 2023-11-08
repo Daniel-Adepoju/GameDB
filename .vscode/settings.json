@@ -1,0 +1,12 @@
+{
+  "liveSassCompile.settings.formats": [
+    
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/react-app/src/styles/css",
+      "savePathReplacementPairs": null
+    }
+  ],
+  "liveSassCompile.settings.watchOnLaunch": true
+}

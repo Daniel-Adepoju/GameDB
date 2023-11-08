@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap');
+
+$colors: (
+'main': rgb(10, 62, 125),
+'secondary': rgb(50, 86, 139),
+'link' :rgb(0, 0, 0),
+'activeLink': white,
+'decrement': rgb(100, 7, 7)
+);
+
+$cardFont: 'Prompt', sans-serif;
+$titleFont: 'Merriweather', serif;
+$linkFont: 'Acme', serif;
+$ratingsFont: 'Major Mono Display', monospace;
+$textFont: 'Anonymous Pro', monospace;
+
+$fonts: (
+ 'cardFont': $cardFont,
+ 'title':  $titleFont,
+ 'link': $linkFont,
+ 'rating':$ratingsFont,
+ 'text': $textFont
+)
