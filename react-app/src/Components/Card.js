@@ -13,14 +13,12 @@ setIsImgLoaded(true)
 
     // console.log(props)
     return ( <>
-         <div className="cards">
+      {props.background_image && <div className="cards">
          <div className="cardName">{props.name}</div>
           <NavLink to={`/game_details/${props.slug}`}> 
-         {/* <div className={isImgLoaded ? "cardImgCon" : 'cardImgCon loading'}> */}
 <img  onLoad={(e) => imgLoading(e)} loading='lazy' className='cardImg' src={props.background_image} />
-         {/* </div> */}
           </NavLink>
-        </div>
+        </div>}
     </>
     );
 }

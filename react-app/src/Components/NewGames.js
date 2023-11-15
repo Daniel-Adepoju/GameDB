@@ -23,7 +23,7 @@ const currentDay =
 function Trending() {
   const [page,setPage] = useState(1)
   const [genre,setGenre] = useState('')
-  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${currentYear}-01-01,${currentYear}-${currentMonth}-${currentDay}&ordering=-released,-rating`
+  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${currentYear}-01-01,${currentYear}-${currentMonth}-${currentDay}&ordering=-released,-updated`
   const {data, setData,error,loaded} = useFetch(url)
 
    const handleScroll = () => {
