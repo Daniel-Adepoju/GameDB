@@ -189,7 +189,7 @@ justify-content: center;
 }
 .imgCon {
   width:80%;
-  background-color: grey;
+  background-color: rgb(26, 26, 26);
   position: relative;
   margin-inline:auto;
 
@@ -536,4 +536,7 @@ ul li {
  .selectYear.active {
 @include transitionAll(300ms, ease-in);
   border: 1px solid colour('main');
+}
+h2 {
+  margin-left: 15px;
 }

@@ -195,7 +195,7 @@ footer {
 }
 .detailsCon .divOne .imgCon {
   width: 80%;
-  background-color: grey;
+  background-color: rgb(26, 26, 26);
   position: relative;
   margin-inline: auto;
 }
@@ -593,4 +593,8 @@ section .about {
 .selectYear.active {
   transition: 300ms ease-in;
   border: 1px solid rgb(10, 62, 125);
+}
+
+h2 {
+  margin-left: 15px;
 }/*# sourceMappingURL=index.css.map */
