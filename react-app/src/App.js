@@ -5,7 +5,6 @@ import Home, {loader as homeLoader,action as homeAction} from './Pages/Home'
 import SearchComponent,{action as searchAction} from './Components/SearchComponent'
 import Layout from './Layout'
 import About from './Pages/About'
-import Games from './Pages/Games Page'
 import SearchPage, {loader as searchLoader} from './Pages/SearchPage'
 import Details,{loader as detailsLoader} from './Pages/Details'
 import Error from './Pages/Error'
@@ -17,7 +16,6 @@ const router = createBrowserRouter(createRoutesFromElements(
    errorElement={<Error />}>
    {/* <Route index element={<SearchComponent/>} /> */}
   <Route index element={<Home />} loader={homeLoader} action={homeAction}/>
-  <Route path='games' element={<Games />} />
   <Route path='about' element={<About />}/>
   <Route
    path='game_details/:id' element={<Details />}
