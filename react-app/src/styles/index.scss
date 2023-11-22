@@ -460,3 +460,13 @@ justify-content: center;
 button {
   cursor: pointer;
 }
+
+section {
+  .about {
+    @include flex(column,center,center);
+    margin: 100px auto;
+    width:80%;
+    font-size:  50px;
+    font-family: fontFam('card');
+  }
+}
