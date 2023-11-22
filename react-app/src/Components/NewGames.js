@@ -8,7 +8,8 @@ import { useFetch } from '../useFetch'
 import Card from './Card'
 import Loader from './Loader'
 import SearchComponent from './SearchComponent'
-
+import { generateYears } from '../yearsArray'
+ console.log(generateYears())
 const date = new Date()
 const currentYear = date.getFullYear()
 const month = date.getMonth() + 1
@@ -23,8 +24,14 @@ const currentDay =
 function Trending() {
   const [page,setPage] = useState(1)
   const [genre,setGenre] = useState('')
-  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${currentYear}-01-01,${currentYear}-${currentMonth}-${currentDay}&ordering=-released,-updated`
+  const [isActive,setIsActive] = useState(false)
+  const [yearValue,setYearValue] = useState(2023)
+  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${yearValue}-01-01,${yearValue}-${currentMonth}-${currentDay}&ordering=-released,-updated`
   const {data, setData,error,loaded} = useFetch(url)
+   
+  useEffect(() => {
+    setData([])
+     },[yearValue])
 
    const handleScroll = () => {
     if(window.innerHeight + document.documentElement.scrollTop + 1 >=
@@ -33,20 +40,33 @@ function Trending() {
        } 
    }
 
+   const handleSelect = () => {
+    setIsActive(prev => !prev)
+   }
+   const selectValue = (e) => {
+  setYearValue(e.target.textContent)
+   }
+
    useEffect(() => {
   window.addEventListener('scroll', handleScroll)
   return () => window.removeEventListener('scroll', handleScroll) 
    },[])
 
+
+  const years = generateYears().map((item,index) => {
+    return <li onClick={(e) => selectValue(e)} key={index}>{item}</li>
+  })
   const displayGames =
        <div>
         <SearchComponent />
-        <select name="selectYear">
-          <option>Select Year</option>
-          <option>2022</option>
-          </select>
+        <div onClick={handleSelect} className="selectYear">
+          {yearValue}
+          <ul className= {isActive ?'active' :'normal'}>
+         {years}
+          </ul>
+          </div>
           <h3 className='title firstHead'>
-            {currentYear} Games
+            {yearValue} Games
           </h3>
           <div className="featured">
    {  data?.map(

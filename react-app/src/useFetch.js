@@ -15,7 +15,7 @@ const res = await fetch(url, {signal: controller.signal})
 const result = await res.json()
 const newArr = await result.results
 setData((prev) => {
-  return [...new Set([...prev, ...newArr])]
+  return [...new Set([...prev,...newArr])]
 })
 setError(false)
 setLoaded(true)

@@ -471,7 +471,8 @@ section {
   }
 }
 
-select[name="selectYear"] {
+ .selectYear {
+  z-index:10;
   position: relative;
   display:block;
   margin-top:20px;
@@ -484,25 +485,56 @@ select[name="selectYear"] {
   outline: 1px solid colour('main');
   @include transitionAll(300ms, ease-in );
   font-family: fontFam('rating');
-  // display:none;
-  option {
+  cursor:pointer;
+   ul {
+    overflow: hidden;
     position:absolute;
     top:100%;
     left:0;
-    right:0;
-    width:100px;
-    border-radius: 0;
-   background-color: rgb(37, 37, 37);
+    width:100%;
+    margin:2px auto;
+    border-radius: 8px;
+   background-color: rgb(45, 40, 40);
    color:white;
-  //  cursor:pointer;
+   cursor:pointer;
+  //  display:none;
 }
- option:hover {
- position:absolute;
- background-color: rgb(218, 24, 24);
+ul.normal {
+@extend ul;
+height:0;
+ animation: fallOut 200ms ease-out;
+ @keyframes fallOut {
+  from{height:100%;}
+  to{height: 0%}
+}
+}
+ul.active {
+  display: block;
+  animation: fallIn 200ms ease-in;
+  overflow: hidden;
+  @keyframes fallIn {
+    0%{height:0%;}
+    20%{height: 30%}
+    60%{height: 72%}
+    100%{height: 100%}
+  }
+}
+ul li {
+  margin: 10px auto;
+  padding: 5px 10px;
+  border-bottom: 1px solid rgb(65, 62, 62);
+ list-style: none;
+ @include transitionAll(300ms, ease-in );
+}
+ ul li:hover {
+ list-style: none;
+ cursor: pointer;
+ background-color: rgb(24, 85, 218);
+ @include transitionAll(200ms, ease-in );
 }
 }
 
-select:focus {
+ .selectYear.active {
 @include transitionAll(300ms, ease-in);
   border: 1px solid colour('main');
 }
