@@ -30,7 +30,7 @@ function Trending() {
   const {data, setData,error,loaded} = useFetch(url)
    
   useEffect(() => {
-    setData([])
+    setData([]) 
      },[yearValue])
 
    const handleScroll = () => {
