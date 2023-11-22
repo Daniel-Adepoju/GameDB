@@ -31,7 +31,7 @@ function Trending() {
    
   useEffect(() => {
     setData([]) 
-     },[yearValue])
+     },[yearValue]) 
 
    const handleScroll = () => {
     if(window.innerHeight + document.documentElement.scrollTop + 1 >=
