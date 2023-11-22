@@ -4,15 +4,7 @@ function About() {
   return (
     <>
       <section className='about'>
-        Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit.
-        Perspiciatis, at? Praesentium ab
-        velit harum. Laborum consequatur
-        perferendis quam aperiam est,
-        consectetur, similique
-        temporibus assumenda porro iusto
-        quibusdam accusamus velit
-        ratione!
+      A mini project to search for games,and find details aout them
       </section>
     </>
   )
