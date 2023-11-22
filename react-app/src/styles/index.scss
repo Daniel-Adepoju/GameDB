@@ -378,7 +378,7 @@ justify-content: center;
 }
 
 .firstHead {
-  margin: 10px auto;
+  margin: 20px auto;
   margin-top: 50px;
   color: colour('main');
 }
@@ -469,4 +469,40 @@ section {
     font-size:  50px;
     font-family: fontFam('card');
   }
+}
+
+select[name="selectYear"] {
+  position: relative;
+  display:block;
+  margin-top:20px;
+  margin-bottom: -10px;
+  margin-inline: auto;
+  padding: 10px;
+  border-radius:10px;
+  width: 50%;
+  border: none;
+  outline: 1px solid colour('main');
+  @include transitionAll(300ms, ease-in );
+  font-family: fontFam('rating');
+  // display:none;
+  option {
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    width:100px;
+    border-radius: 0;
+   background-color: rgb(37, 37, 37);
+   color:white;
+  //  cursor:pointer;
+}
+ option:hover {
+ position:absolute;
+ background-color: rgb(218, 24, 24);
+}
+}
+
+select:focus {
+@include transitionAll(300ms, ease-in);
+  border: 1px solid colour('main');
 }

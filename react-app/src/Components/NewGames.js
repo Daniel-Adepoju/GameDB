@@ -41,6 +41,10 @@ function Trending() {
   const displayGames =
        <div>
         <SearchComponent />
+        <select name="selectYear">
+          <option>Select Year</option>
+          <option>2022</option>
+          </select>
           <h3 className='title firstHead'>
             {currentYear} Games
           </h3>

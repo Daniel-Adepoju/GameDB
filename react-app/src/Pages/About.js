@@ -5,7 +5,7 @@ function About() {
     <>
       <section className='about'>
      <div className='about'>
-      A mini project to search for games,and find details about them
+      A mini project to search for games, and find details about them
       </div>
       </section>
     </>
