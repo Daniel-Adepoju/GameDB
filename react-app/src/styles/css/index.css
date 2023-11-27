@@ -105,7 +105,7 @@ footer {
   transition: 300ms ease-out;
   position: relative;
   margin-inline: auto;
-  transform: translateX(-100%);
+  transform: translateY(-30%);
   opacity: 0%;
 }
 .cards:hover {
@@ -114,6 +114,8 @@ footer {
 }
 @media (min-width: 600px) {
   .cards {
+    transform: translateY(0);
+    transform: translateX(-50%);
     width: 80%;
     height: 100%;
   }
@@ -124,11 +126,17 @@ footer {
 .cards.appearing {
   transition: 400ms ease-in;
   opacity: 100%;
-  transform: translateX(0%);
+  transform: translateY(0%);
 }
 .cards.appearing:hover {
   transition: 300ms ease-in;
   transform: scale(0.98);
+}
+@media (min-width: 600px) {
+  .cards.appearing {
+    transform: translateY(0);
+    transform: translateX(0%);
+  }
 }
 .cards a, .cards header .links a, header .links .cards a, .cards footer .links a, footer .links .cards a {
   width: 100%;
@@ -529,9 +537,84 @@ section .about {
   font-size: 50px;
 }
 
-.selectYear {
+.yearCon {
+  font-family: "Major Mono Display", monospace;
   z-index: 10;
   position: relative;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  margin-inline: auto;
+  width: 80%;
+  transition: 300ms ease-in;
+}
+.yearCon ul, .yearCon ul.normal {
+  overflow: hidden;
+  position: absolute;
+  padding: 10px 4px;
+  top: 100%;
+  left: 25%;
+  width: 50%;
+  margin: 2px auto;
+  border-radius: 8px;
+  background-color: rgb(45, 40, 40);
+  color: white;
+  display: none;
+}
+.yearCon ul.normal {
+  height: 0;
+  animation: fallIn200ms ease-in;
+}
+@keyframes fallIn {
+  from {
+    height: 800%;
+  }
+  to {
+    height: 10%;
+  }
+}
+.yearCon ul.active {
+  display: block;
+  animation: fallOut 200ms ease-in;
+  height: 800%;
+  overflow-y: scroll;
+}
+.yearCon ul.active::-webkit-scrollbar {
+  width: 5px;
+}
+.yearCon ul.active::-webkit-scrollbar-thumb {
+  background-color: rgb(24, 85, 218);
+  border-radius: 100px;
+}
+@keyframes fallOut {
+  0% {
+    height: 0%;
+  }
+  20% {
+    height: 250%;
+  }
+  60% {
+    height: 600%;
+  }
+  100% {
+    height: 800%;
+  }
+}
+.yearCon ul li, .yearCon ul.normal li {
+  margin: 10px auto;
+  padding: 5px 10px;
+  border-bottom: 1px solid rgb(65, 62, 62);
+  list-style: none;
+  transition: 300ms ease-in;
+}
+.yearCon ul li:hover {
+  list-style: none;
+  cursor: pointer;
+  background-color: rgb(24, 85, 218);
+  transition: 200ms ease-in;
+}
+
+.selectYear {
   display: block;
   margin-top: 20px;
   margin-bottom: -10px;
@@ -541,64 +624,7 @@ section .about {
   width: 50%;
   border: none;
   outline: 1px solid rgb(10, 62, 125);
-  transition: 300ms ease-in;
-  font-family: "Major Mono Display", monospace;
   cursor: pointer;
-}
-.selectYear ul, .selectYear ul.normal {
-  overflow: hidden;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  margin: 2px auto;
-  border-radius: 8px;
-  background-color: rgb(45, 40, 40);
-  color: white;
-}
-.selectYear ul.normal {
-  height: 0;
-  animation: fallOut 200ms ease-out;
-}
-@keyframes fallOut {
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0%;
-  }
-}
-.selectYear ul.active {
-  display: block;
-  animation: fallIn 200ms ease-in;
-  overflow: hidden;
-}
-@keyframes fallIn {
-  0% {
-    height: 0%;
-  }
-  20% {
-    height: 30%;
-  }
-  60% {
-    height: 72%;
-  }
-  100% {
-    height: 100%;
-  }
-}
-.selectYear ul li, .selectYear ul.normal li {
-  margin: 10px auto;
-  padding: 5px 10px;
-  border-bottom: 1px solid rgb(65, 62, 62);
-  list-style: none;
-  transition: 300ms ease-in;
-}
-.selectYear ul li:hover {
-  list-style: none;
-  cursor: pointer;
-  background-color: rgb(24, 85, 218);
-  transition: 200ms ease-in;
 }
 
 .selectYear.active {

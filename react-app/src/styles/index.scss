@@ -116,7 +116,7 @@ justify-content: center;
     transition: 300ms ease-out;
     position: relative;
     margin-inline: auto;
-    transform: translateX(-100%);
+    transform: translateY(-30%);
     opacity: 0%;
     &:hover {
         transition: 300ms ease-in;
@@ -125,6 +125,8 @@ justify-content: center;
     }
     
     @media (min-width: 600px) {
+      transform: translateY(0);
+      transform: translateX(-50%);
       width: 80%;
       height: 100%;
       &:nth-child(3n + 1) {
@@ -135,11 +137,15 @@ justify-content: center;
     &.appearing {
       transition: 400ms ease-in;
       opacity: 100%;
-     transform: translateX(0%);
+     transform: translateY(0%);
      &:hover {
       transition: 300ms ease-in;
     transform: scale(0.98);
     // transform: rotate(-0.9deg);
+  }
+  @media (min-width: 600px) {
+    transform: translateY(0);
+    transform: translateX(0%);
   }
     }
     
@@ -484,9 +490,74 @@ section {
   }
 }
 
- .selectYear {
+.yearCon {
+  font-family: fontFam('rating');
   z-index:10;
   position: relative;
+  display:block;
+  margin-top:20px;
+  margin-bottom: -10px;
+  margin-inline: auto;
+  width:80%;
+  @include transitionAll(300ms, ease-in );
+  ul {
+   overflow: hidden;
+   position:absolute;
+   padding: 10px 4px;
+   top:100%;
+   left:25%;
+   width:50%;
+   margin:2px auto;
+   border-radius: 8px;
+  background-color: rgb(45, 40, 40);
+  color:white;
+   display:none;
+  }
+  ul.normal {
+  @extend ul;
+  height:0;
+  animation: fallIn200ms ease-in;
+  @keyframes fallIn {
+  from{height:800%;}
+  to{height: 10%}
+  }
+  }
+  ul.active {
+  display: block;
+  animation: fallOut 200ms ease-in;
+  height: 800%;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width:5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(24, 85, 218);
+    border-radius: 100px;
+  }
+}
+  @keyframes fallOut {
+   0%{height:0%;}
+   20%{height: 250%}
+   60%{height: 600%}
+   100%{height: 800%}
+  }
+  ul li {
+  margin: 10px auto;
+  padding: 5px 10px;
+  border-bottom: 1px solid rgb(65, 62, 62);
+  list-style: none;
+  @include transitionAll(300ms, ease-in );
+  }
+  ul li:hover {
+  list-style: none;
+  cursor: pointer;
+  background-color: rgb(24, 85, 218);
+  @include transitionAll(200ms, ease-in );
+  }
+
+}
+
+ .selectYear {
   display:block;
   margin-top:20px;
   margin-bottom: -10px;
@@ -496,54 +567,7 @@ section {
   width: 50%;
   border: none;
   outline: 1px solid colour('main');
-  @include transitionAll(300ms, ease-in );
-  font-family: fontFam('rating');
   cursor:pointer;
-   ul {
-    overflow: hidden;
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-    margin:2px auto;
-    border-radius: 8px;
-   background-color: rgb(45, 40, 40);
-   color:white;
-  //  display:none;
-}
-ul.normal {
-@extend ul;
-height:0;
- animation: fallOut 200ms ease-out;
- @keyframes fallOut {
-  from{height:100%;}
-  to{height: 0%}
-}
-}
-ul.active {
-  display: block;
-  animation: fallIn 200ms ease-in;
-  overflow: hidden;
-  @keyframes fallIn {
-    0%{height:0%;}
-    20%{height: 30%}
-    60%{height: 72%}
-    100%{height: 100%}
-  }
-}
-ul li {
-  margin: 10px auto;
-  padding: 5px 10px;
-  border-bottom: 1px solid rgb(65, 62, 62);
- list-style: none;
- @include transitionAll(300ms, ease-in );
-}
- ul li:hover {
- list-style: none;
- cursor: pointer;
- background-color: rgb(24, 85, 218);
- @include transitionAll(200ms, ease-in );
-}
 }
 
  .selectYear.active {
