@@ -116,6 +116,8 @@ justify-content: center;
     transition: 300ms ease-out;
     position: relative;
     margin-inline: auto;
+    transform: translateX(-100%);
+    opacity: 0%;
     &:hover {
         transition: 300ms ease-in;
       transform: scale(0.98);
@@ -128,6 +130,17 @@ justify-content: center;
       &:nth-child(3n + 1) {
          grid-column-end: span 2;
       }
+    }
+
+    &.appearing {
+      transition: 400ms ease-in;
+      opacity: 100%;
+     transform: translateX(0%);
+     &:hover {
+      transition: 300ms ease-in;
+    transform: scale(0.98);
+    // transform: rotate(-0.9deg);
+  }
     }
     
     a {

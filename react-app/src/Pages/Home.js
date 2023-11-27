@@ -1,7 +1,7 @@
 import React, {
   Suspense
 } from 'react'
-import NewGame from '../Components/NewGames'
+ import Games from '../Components/Games'
  import SearchComponent from '../Components/SearchComponent'
  import { useLoaderData,
   Form,
@@ -36,7 +36,7 @@ function Home() {
     <Suspense fallback={<Loader />}>
       <div className='message'>{message}</div>
      <Await resolve={data.game}>
-     {() =>  <NewGame />}
+     {() =>  <Games/>}
      </Await>
     </Suspense>
     </>   

@@ -105,6 +105,8 @@ footer {
   transition: 300ms ease-out;
   position: relative;
   margin-inline: auto;
+  transform: translateX(-100%);
+  opacity: 0%;
 }
 .cards:hover {
   transition: 300ms ease-in;
@@ -118,6 +120,15 @@ footer {
   .cards:nth-child(3n+1) {
     grid-column-end: span 2;
   }
+}
+.cards.appearing {
+  transition: 400ms ease-in;
+  opacity: 100%;
+  transform: translateX(0%);
+}
+.cards.appearing:hover {
+  transition: 300ms ease-in;
+  transform: scale(0.98);
 }
 .cards a, .cards header .links a, header .links .cards a, .cards footer .links a, footer .links .cards a {
   width: 100%;
