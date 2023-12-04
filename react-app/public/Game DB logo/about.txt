@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Overpass Mono
+- Font Author: Copyright 2021 The Overpass Project Authors (https://github.com/RedHatOfficial/Overpass)
+- Font Source: http://fonts.gstatic.com/s/overpassmono/v16/_Xm5-H86tzKDdAPa-KPQZ-AC_COcRycquHlL6EUKpUzzXur-SmIr.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

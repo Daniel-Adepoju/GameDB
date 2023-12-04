@@ -84,7 +84,7 @@ export const getReleaseDate =  async (id) => {
 }
 
 export const getSearchedGame =  async (search) => {
-  const res = await fetch(`https://api.rawg.io/api/games?key=${key}&search=${search}`)
+  const res = await fetch(`https://api.rawg.io/api/games?key=${key}&search=${search}&exclude_additions=true&ordering=-released,-updated`)
   const result = await res.json()
   return result.results
 }

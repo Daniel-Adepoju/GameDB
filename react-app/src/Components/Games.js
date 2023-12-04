@@ -24,16 +24,15 @@ function Games() {
   const [page,setPage] = useState(1)
   const [genre,setGenre] = useState('')
   const [isActive,setIsActive] = useState(false)
-  const [yearValue,setYearValue] = useState(currentYear)
+  const [yearValue,setYearValue] = useState()
   const [yearConVal,setYearConVal] = useState('Select Year')
   const cardAppearance = useContext(RefVal)
-
-  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${yearValue}-01-01,${yearValue}-${currentMonth}-${currentDay}&ordering=-released,-updated`
+  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${yearValue ? yearValue : currentYear}-01-01,${yearValue ? yearValue : currentYear}-${currentMonth}-${currentDay}&ordering=-released,-updated`
   const {data, setData,error,loaded} = useFetch(url)
-   
+  
   useEffect(() => {
     setData([])
-     },[yearValue]) 
+     },[yearValue,yearConVal]) 
 
    const handleScroll = () => {
     if(window.innerHeight + document.documentElement.scrollTop + 1 >=
@@ -47,8 +46,16 @@ function Games() {
    }
    const selectValue = (e) => {
   setPage(1)
+  if(e.target.textContent !== currentYear.toString()) {
   setYearValue(e.target.textContent)
   setYearConVal(e.target.textContent)
+  }
+  if (e.target.textContent === currentYear.toString()
+   && Number(yearValue) < Number(currentYear)) {
+  setYearValue(currentYear)
+  setYearConVal(currentYear)
+  }
+  handleSelect()
    }
 
    useEffect(() => {
@@ -73,7 +80,7 @@ function Games() {
           </ul>
         </div>
           <h3 className='title firstHead'>
-            {yearValue} Games
+            {yearValue || Number(currentYear)} Games
           </h3>
           <div className="featured">
    {  data?.map(

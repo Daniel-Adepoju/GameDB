@@ -1,4 +1,4 @@
-import React, { Suspense} from 'react';
+import React, { Suspense, useContext} from 'react';
 import {getSearchedGame} from '../useFetch';
 import { useLoaderData,defer,Await} from 'react-router-dom';
 import Card from '../Components/Card';
@@ -15,7 +15,7 @@ export function loader({request}) {
 
 function SearchPage() {
   const data = useLoaderData()
-  
+  const cardAppearance = useContext(RefVal)
   const displayGames = (game) => {
       return <div>
           <h3 className='title firstHead'>
@@ -26,7 +26,7 @@ function SearchPage() {
     (item) => {
       return(
         <Card
-          ref={RefVal}
+          newRef={cardAppearance}
           key={item.id}
           {...item}
         />)
