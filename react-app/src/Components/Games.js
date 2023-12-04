@@ -1,15 +1,14 @@
 import React, {
   useState,
-  useEffect
-  ,useRef,
-  useCallback
+  useEffect,
+  useContext
 } from 'react'
 import { useFetch } from '../useFetch'
 import Card from './Card'
 import Loader from './Loader'
 import SearchComponent from './SearchComponent'
 import { generateYears } from '../yearsArray'
-
+import { RefVal } from '../Layout'
 const date = new Date()
 const currentYear = date.getFullYear()
 const month = date.getMonth() + 1
@@ -20,36 +19,21 @@ const currentDay =
   day < 10 ? `0${day}` : day
   const key =
   '4e52d5704d8d4c5eab34ba05fe121eb7'
-
+   
 function Games() {
   const [page,setPage] = useState(1)
   const [genre,setGenre] = useState('')
   const [isActive,setIsActive] = useState(false)
   const [yearValue,setYearValue] = useState(currentYear)
   const [yearConVal,setYearConVal] = useState('Select Year')
-  const observer = useRef()
+  const cardAppearance = useContext(RefVal)
+
   const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${yearValue}-01-01,${yearValue}-${currentMonth}-${currentDay}&ordering=-released,-updated`
   const {data, setData,error,loaded} = useFetch(url)
    
   useEffect(() => {
-    setData([]) 
+    setData([])
      },[yearValue]) 
-
-  const cardAppearance = useCallback((node) => {
-  if (observer.current) {
-    // observer.current.disconnect()
-  }
-  observer.current = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-  if(entry.isIntersecting) {
-    entry.target.classList.add('appearing')
-  } else {
-    entry.target.classList.remove('appearing')
-  }
-    })
-  })
-  if(node) return observer.current.observe(node)
-  })
 
    const handleScroll = () => {
     if(window.innerHeight + document.documentElement.scrollTop + 1 >=
@@ -78,7 +62,7 @@ function Games() {
   })
   const displayGames =
        <div>
-        <SearchComponent />
+        <SearchComponent newRef={cardAppearance}/>
         <div className='yearCon'>
         <div onClick={handleSelect} className="selectYear">
           {yearConVal}

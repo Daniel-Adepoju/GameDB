@@ -3,6 +3,8 @@ import {getSearchedGame} from '../useFetch';
 import { useLoaderData,defer,Await} from 'react-router-dom';
 import Card from '../Components/Card';
 import Loader from '../Components/Loader';
+import { RefVal } from '../Layout';
+
 export function loader({request}) {
  window.scrollTo(0,0)
  const search = new URL(request.url).searchParams.get('result')
@@ -13,9 +15,6 @@ export function loader({request}) {
 
 function SearchPage() {
   const data = useLoaderData()
-  console.log(data.game)
-
-
   
   const displayGames = (game) => {
       return <div>
@@ -27,6 +26,7 @@ function SearchPage() {
     (item) => {
       return(
         <Card
+          ref={RefVal}
           key={item.id}
           {...item}
         />)

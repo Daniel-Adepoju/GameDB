@@ -116,8 +116,10 @@ justify-content: center;
     transition: 300ms ease-out;
     position: relative;
     margin-inline: auto;
-    transform: translateY(-30%);
+    transform: scale(0.52);
     opacity: 0%;
+    visibility: hidden;
+    z-index: -1;
     &:hover {
         transition: 300ms ease-in;
       transform: scale(0.98);
@@ -126,7 +128,7 @@ justify-content: center;
     
     @media (min-width: 600px) {
       transform: translateY(0);
-      transform: translateX(-50%);
+      transform: translateX(0%);
       width: 80%;
       height: 100%;
       &:nth-child(3n + 1) {
@@ -135,9 +137,11 @@ justify-content: center;
     }
 
     &.appearing {
+      z-index: 1;
+      visibility: visible;
       transition: 400ms ease-in;
       opacity: 100%;
-     transform: translateY(0%);
+     transform: scale(1);
      &:hover {
       transition: 300ms ease-in;
     transform: scale(0.98);
