@@ -99,13 +99,13 @@ footer {
   scroll-snap-align: center;
   background-color: rgb(2, 2, 33);
   width: 80%;
-  height: 50%;
+  height: 100%;
   box-shadow: 1px 1px 5px rgb(89, 84, 84);
   border-radius: 18px;
   transition: 300ms ease-out;
   position: relative;
   margin-inline: auto;
-  transform: scale(0.52);
+  transform: scale(0.72);
   opacity: 0%;
   visibility: hidden;
   z-index: -1;
@@ -114,14 +114,42 @@ footer {
   transition: 300ms ease-in;
   transform: scale(0.98);
 }
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .cards {
-    transform: translateY(0);
-    transform: translateX(0%);
+    transform: translateY(0%);
+    transform: translateX(50%);
     width: 80%;
-    height: 100%;
+    height: 80%;
   }
   .cards:nth-child(3n+1) {
+    margin-left: 10%;
+    grid-column-end: span 2;
+  }
+}
+@media (min-width: 930px) {
+  .cards {
+    transform: translateY(0%);
+    transform: translateX(50%);
+    width: 80%;
+    height: 80%;
+  }
+  .cards:nth-child(3n+1) {
+    margin-left: 10%;
+    grid-column-end: span 1;
+  }
+}
+@media (min-width: 1250px) {
+  .cards {
+    transform: translateY(0%);
+    transform: translateX(50%);
+    width: 80%;
+    height: 80%;
+    margin-left: -10%;
+    margin-top: 11%;
+  }
+  .cards:nth-child(3n+1) {
+    margin-top: 1%;
+    margin-left: 10%;
     grid-column-end: span 2;
   }
 }
@@ -165,8 +193,10 @@ footer {
 }
 @media (min-width: 700px) {
   .cards .cardImg {
-    aspect-ratio: 2/1;
     min-height: 100%;
+    min-width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 
