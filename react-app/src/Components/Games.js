@@ -17,8 +17,7 @@ const currentMonth =
   month < 10 ? `0${month}` : month
 const currentDay =
   day < 10 ? `0${day}` : day
-  const key =
-  '4e52d5704d8d4c5eab34ba05fe121eb7'
+  const key = process.env.REACT_APP_API_KEY
    
 function Games() {
   const [page,setPage] = useState(1)

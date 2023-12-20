@@ -11,7 +11,6 @@ setIsImgLoaded(true)
 } 
     }
 
-    // console.log(props)
     return ( <>
       {props.background_image && <div ref={props.newRef} className="cards">
          <div className="cardName">{props.name}</div>

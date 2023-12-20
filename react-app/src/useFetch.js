@@ -1,6 +1,6 @@
 import React, { useState, useEffect,useCallback } from 'react';
 
-const key = '4e52d5704d8d4c5eab34ba05fe121eb7'
+const key = process.env.REACT_APP_API_KEY
 const url = `https://api.rawg.io/api/games?key=${key}`
 
 const controller = new AbortController()
