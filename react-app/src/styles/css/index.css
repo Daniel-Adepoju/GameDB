@@ -229,6 +229,9 @@ footer {
     gap: 5px;
   }
 }
+.detailsCon h2 {
+  color: white;
+}
 .detailsCon .divOne {
   display: flex;
   flex-direction: column;
@@ -335,6 +338,9 @@ footer {
   box-shadow: 2px 8px 9px rgb(24, 24, 27);
   color: white;
 }
+.summary h2 {
+  color: white;
+}
 
 .screenshots {
   display: grid;
@@ -345,6 +351,9 @@ footer {
   gap: 56%;
   scroll-snap-type: inline mandatory;
   overflow-x: scroll;
+}
+.screenshots h2 {
+  color: white;
 }
 @media (min-width: 700px) {
   .screenshots {

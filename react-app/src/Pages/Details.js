@@ -156,13 +156,13 @@ function Details() {
   </div>
     </div>
 
-    <Suspense fallback={<h2>Loading...</h2>}>
+    <Suspense fallback={<h2 style={{color:'white'}}>Loading...</h2>}>
   <Await resolve={data.summary}>
    {showSummary}
   </Await>
     </Suspense>
 
-    <Suspense fallback={<h2>Loading...</h2>}>
+    <Suspense fallback={<h2  style={{color:'white'}}>Loading...</h2>}>
   <Await resolve={data.screenShots}>
    {screenShots}
   </Await>
