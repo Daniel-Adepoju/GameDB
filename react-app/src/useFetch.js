@@ -14,9 +14,11 @@ export function useFetch(url) {
 const res = await fetch(url, {signal: controller.signal})
 const result = await res.json()
 const newArr = await result.results
+if (result.next) {
 setData((prev) => {
   return [...new Set([...prev,...newArr])]
 })
+}
 setError(false)
 setLoaded(true)
     } catch(err) {
