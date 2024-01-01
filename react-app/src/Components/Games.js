@@ -26,7 +26,7 @@ function Games() {
   const [yearValue,setYearValue] = useState()
   const [yearConVal,setYearConVal] = useState('Select Year')
   const cardAppearance = useContext(RefVal)
-  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${yearValue ? yearValue : currentYear}-01-01,${yearValue ? yearValue : currentYear}-${currentMonth}-${currentDay}&ordering=-released,-updated`
+  const url = `https://api.rawg.io/api/games?key=${key}&page=${page.toString()}&page_size=20&exclude_additions=true&dates=${yearValue ? yearValue : currentYear}-01-01,${yearValue ? yearValue : currentYear}-${12}-${31}&ordering=-released,-updated`
   const {data, setData,error,loaded} = useFetch(url)
   
   useEffect(() => {
